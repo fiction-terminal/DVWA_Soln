@@ -1,0 +1,7 @@
+dvwaSession=2; security_level=0; PHPSESSID=6d3c4eaed157f16218889a8e4ddd30a7; security=low
+
+
+dvwaSession=3; security_level=0; PHPSESSID=6d3c4eaed157f16218889a8e4ddd30a7; security=low
+
+
+dvwaSession=4; security_level=0; PHPSESSID=6d3c4eaed157f16218889a8e4ddd30a7; security=low

